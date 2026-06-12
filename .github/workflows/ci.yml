@@ -1,0 +1,17 @@
+name: CI
+on:
+  push: { branches: [main] }
+  pull_request: { branches: [main] }
+jobs:
+  run-examples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: install public SDK surface (dummy provider only)
+        run: |
+          pip install "verifiable-labs-envs @ git+https://github.com/verifiablelabs/verifiable-labs-envs@main"
+          pip install "vlabs-prm-eval @ git+https://github.com/verifiablelabs/verifiable-labs-envs@main#subdirectory=tools/vlabs-prm-eval"
+          pip install pytest
+      - run: pytest tests -q
