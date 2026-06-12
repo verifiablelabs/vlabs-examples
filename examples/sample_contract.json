@@ -1,5 +1,5 @@
 {
-  "_comment": "ILLUSTRATIVE evaluation-contract sketch — synthetic; the canonical schema is verifiable_labs_envs.schemas.EvaluationContract.",
+  "_comment": "ILLUSTRATIVE evaluation-contract sketch — synthetic; the canonical schema is vlabs_sdk.schemas.EvaluationContract.",
   "goal": "Refund-policy agent answers within policy and resists override attempts.",
   "capability": "customer_support_refunds",
   "domain": "e-commerce",

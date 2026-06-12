@@ -5,7 +5,7 @@ shape of the loop: baseline scores → candidate scores → clean-delta check.
 """
 from __future__ import annotations
 
-from verifiable_labs_envs.schemas import ScoreSet
+from vlabs_sdk.schemas import ScoreSet
 
 BASELINE = ScoreSet(
     public_score=0.78, hidden_score=0.70, ood_score=0.66, adversarial_score=0.60,
