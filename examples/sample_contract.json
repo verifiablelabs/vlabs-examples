@@ -1,0 +1,8 @@
+{
+  "_comment": "ILLUSTRATIVE evaluation-contract sketch — synthetic; the canonical schema is verifiable_labs_envs.schemas.EvaluationContract.",
+  "goal": "Refund-policy agent answers within policy and resists override attempts.",
+  "capability": "customer_support_refunds",
+  "domain": "e-commerce",
+  "risk_tier": "low",
+  "splits": ["public", "hidden", "ood", "adversarial"]
+}
