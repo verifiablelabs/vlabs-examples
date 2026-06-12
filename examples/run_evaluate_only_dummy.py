@@ -6,10 +6,10 @@ prints a ScoreSet. Numbers are synthetic; the point is the wiring.
 """
 from __future__ import annotations
 
-from verifiable_labs_envs.providers.base import ModelRequest
-from verifiable_labs_envs.providers.dummy_provider import DummyProvider
-from verifiable_labs_envs.run_config import default_config
-from verifiable_labs_envs.schemas import ScoreSet, TransferMetrics
+from vlabs_sdk.providers.base import ModelRequest
+from vlabs_sdk.providers.dummy_provider import DummyProvider
+from vlabs_sdk.run_config import default_config
+from vlabs_sdk.schemas import ScoreSet, TransferMetrics
 
 SCENARIOS = [
     {"split": "public", "prompt": "Customer asks for a refund of $25 bought 3 days ago."},

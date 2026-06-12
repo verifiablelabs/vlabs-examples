@@ -10,7 +10,7 @@ evaluation content, no gold answers.
 
 ## Contents
 
-- [`examples/quickstart_clean_gate.md`](examples/quickstart_clean_gate.md) —
+- [`examples/run_clean_gate_demo.md`](examples/run_clean_gate_demo.md) —
   run the `clean-gate` CLI against sample metric cards.
 - [`examples/sample_assurance_card.json`](examples/sample_assurance_card.json) —
   an illustrative assurance card showing the shape of a gate decision.

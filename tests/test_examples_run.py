@@ -44,12 +44,12 @@ def test_substrate_mock() -> None:
 def test_clean_gate_cli_accept_and_reject() -> None:
     cards = ROOT / "examples" / "cards"
     ok = subprocess.run(
-        ["vlabs-prm-eval", "clean-gate", "--old", str(cards / "clean_old.json"),
+        ["vlabs", "clean-gate", "--old", str(cards / "clean_old.json"),
          "--new", str(cards / "clean_new_accept.json")], capture_output=True,
     )
     assert ok.returncode == 0
     rej = subprocess.run(
-        ["vlabs-prm-eval", "clean-gate", "--old", str(cards / "clean_old.json"),
+        ["vlabs", "clean-gate", "--old", str(cards / "clean_old.json"),
          "--new", str(cards / "clean_reject_dcr.json")], capture_output=True,
     )
     assert rej.returncode == 1
