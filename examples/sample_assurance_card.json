@@ -1,0 +1,28 @@
+{
+  "_comment": "ILLUSTRATIVE EXAMPLE — synthetic numbers, fake IDs. Not a real evaluation.",
+  "card_version": "v2",
+  "run_id": "run_example_0001",
+  "baseline_id": "agent_example_baseline",
+  "candidate_id": "agent_example_candidate",
+  "scores": {
+    "public": 0.81,
+    "hidden": 0.74,
+    "ood": 0.69,
+    "adversarial": 0.62
+  },
+  "contamination": {
+    "dcr": 0.03,
+    "clean_score_public": 0.786
+  },
+  "clean_vgs": {
+    "baseline": 0.61,
+    "candidate": 0.68
+  },
+  "generalization_gap": 0.07,
+  "gate": {
+    "outcome": "ACCEPT",
+    "reasons": []
+  },
+  "redaction_status": "redacted_public_safe",
+  "formal_claim": "Selected mathematical properties behind the contamination-resistant promotion gate are machine-verified in Lean 4. The implementation is property-tested against the formal specification."
+}
