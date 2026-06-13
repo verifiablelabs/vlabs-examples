@@ -1,0 +1,14 @@
+{
+  "model_id": "refund-agent-candidate",
+  "vgs": 0.79,
+  "contamination_risk": 0.08,
+  "clean_vgs": 0.63,
+  "public_score": 0.86,
+  "hidden_score": 0.79,
+  "ood_score": 0.73,
+  "hack_risk": 0.08,
+  "calibration": 0.92,
+  "cost": 1.0,
+  "latency": 1.0,
+  "regression": false
+}

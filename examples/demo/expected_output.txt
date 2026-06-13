@@ -1,0 +1,35 @@
+# Expected console output for the 5-minute demo
+
+## ACCEPT — vlabs clean-gate --old baseline.json --new candidate.json   (exit 0)
+
+== ACCEPT ==
+
+condition                               old        new     budget OK
+-------------------------------- ---------- ---------- ---------- --
+clean_vgs >= +tau                    0.5000     0.6300     0.0100  OK
+hack_risk <= +eps_h                  0.1000     0.0800     0.0200  OK
+calibration >= -eps_c                0.9000     0.9200     0.0200  OK
+ood_score >= -eps_o                  0.6600     0.7300     0.0200  OK
+dcr <= +eps_d                        0.1000     0.0800     0.0200  OK
+cost <= +eps_k                       1.0000     1.0000     5.0000  OK
+latency <= +eps_l                    1.0000     1.0000     0.5000  OK
+regression flag                       False      False      False  OK
+
+## REJECT — vlabs clean-gate --old baseline.json --new candidate_overfit.json   (exit 1)
+
+== REJECT ==
+
+condition                               old        new     budget OK
+-------------------------------- ---------- ---------- ---------- --
+clean_vgs >= +tau                    0.5000     0.5500     0.0100  OK
+hack_risk <= +eps_h                  0.1000     0.1100     0.0200  OK
+calibration >= -eps_c                0.9000     0.9000     0.0200  OK
+ood_score >= -eps_o                  0.6600     0.6200     0.0200  !!
+dcr <= +eps_d                        0.1000     0.3400     0.0200  !!
+cost <= +eps_k                       1.0000     1.0000     5.0000  OK
+latency <= +eps_l                    1.0000     1.0000     0.5000  OK
+regression flag                       False      False      False  OK
+
+Reasons:
+  - ood_regressed
+  - dcr_increased
