@@ -1,0 +1,14 @@
+{
+  "_comment": "ILLUSTRATIVE EXAMPLE — synthetic numbers, fake IDs, fields redacted as they would be for a real customer. Not a real evaluation.",
+  "card_version": "v2",
+  "run_id": "run_redacted_xxxx",
+  "org": "REDACTED",
+  "agent": "REDACTED",
+  "scores": { "public": 0.77, "hidden": 0.70, "ood": 0.66, "adversarial": 0.58 },
+  "contamination": { "dcr": 0.05 },
+  "clean_vgs": { "baseline": 0.55, "candidate": 0.59 },
+  "generalization_gap": 0.07,
+  "gate": { "outcome": "LIMITED_ROLLOUT", "reasons": ["ood_regressed"] },
+  "redaction_status": "redacted_public_safe",
+  "formal_claim": "Selected mathematical properties behind the contamination-resistant promotion gate are machine-verified in Lean 4. The implementation is property-tested against the formal specification."
+}

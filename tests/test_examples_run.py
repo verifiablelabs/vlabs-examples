@@ -53,3 +53,21 @@ def test_clean_gate_cli_accept_and_reject() -> None:
          "--new", str(cards / "clean_reject_dcr.json")], capture_output=True,
     )
     assert rej.returncode == 1
+
+
+def test_demo_clean_gate_accept_and_reject() -> None:
+    """The 5-minute demo fixtures must produce ACCEPT (0) and REJECT (1)."""
+    demo = ROOT / "examples" / "demo"
+    acc = subprocess.run(
+        ["vlabs", "clean-gate", "--old", str(demo / "baseline.json"),
+         "--new", str(demo / "candidate.json")], capture_output=True, text=True,
+    )
+    assert acc.returncode == 0, acc.stdout + acc.stderr
+    assert "ACCEPT" in acc.stdout
+    rej = subprocess.run(
+        ["vlabs", "clean-gate", "--old", str(demo / "baseline.json"),
+         "--new", str(demo / "candidate_overfit.json")], capture_output=True, text=True,
+    )
+    assert rej.returncode == 1, rej.stdout + rej.stderr
+    assert "REJECT" in rej.stdout
+    assert "ood_regressed" in rej.stdout and "dcr_increased" in rej.stdout
