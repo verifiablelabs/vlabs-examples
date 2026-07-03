@@ -41,6 +41,12 @@ def test_substrate_mock() -> None:
     assert "PROHIBITED" in res.stdout
 
 
+def test_openai_rft_ipt_grader() -> None:
+    res = _run("openai_rft_ipt_grader.py")
+    assert res.returncode == 0, res.stderr
+    assert "RFT IPT GRADER OK" in res.stdout
+
+
 def test_clean_gate_cli_accept_and_reject() -> None:
     cards = ROOT / "examples" / "cards"
     ok = subprocess.run(
