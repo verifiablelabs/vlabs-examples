@@ -2,7 +2,7 @@
   "model_id": "refund-agent-baseline",
   "vgs": 0.70,
   "contamination_risk": 0.10,
-  "clean_vgs": 0.50,
+  "clean_vgs": 0.58,
   "public_score": 0.80,
   "hidden_score": 0.68,
   "ood_score": 0.66,

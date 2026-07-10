@@ -1,9 +1,7 @@
 # Clean promotion gate demo
 
 ```bash
-pip install "vlabs-sdk @ git+https://github.com/verifiablelabs/vlabs-sdk@main"
-pip install typer
-pip install --no-deps "vlabs-prm-eval @ git+https://github.com/verifiablelabs/vlabs-sdk@main#subdirectory=tools/vlabs-prm-eval"
+pip install "vlabs-sdk==0.0.2"
 
 vlabs clean-gate --old examples/cards/clean_old.json --new examples/cards/clean_new_accept.json
 # -> ACCEPT (exit 0)

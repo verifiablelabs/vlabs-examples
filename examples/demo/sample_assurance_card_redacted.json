@@ -1,14 +1,28 @@
 {
-  "_comment": "ILLUSTRATIVE EXAMPLE — synthetic numbers, fake IDs, fields redacted as they would be for a real customer. Not a real evaluation.",
   "card_version": "v2",
   "run_id": "run_redacted_xxxx",
-  "org": "REDACTED",
-  "agent": "REDACTED",
-  "scores": { "public": 0.77, "hidden": 0.70, "ood": 0.66, "adversarial": 0.58 },
-  "contamination": { "dcr": 0.05 },
-  "clean_vgs": { "baseline": 0.55, "candidate": 0.59 },
+  "agent_id": "REDACTED",
+  "baseline_id": "REDACTED",
+  "candidate_id": "REDACTED",
+  "decision": "LIMITED_ROLLOUT",
+  "raw_vgs": 0.65,
+  "dcr": 0.05,
+  "clean_vgs": 0.5925,
+  "public_score": 0.77,
+  "hidden_score": 0.70,
+  "ood_score": 0.66,
   "generalization_gap": 0.07,
-  "gate": { "outcome": "LIMITED_ROLLOUT", "reasons": ["ood_regressed"] },
+  "reject_reasons": ["ood_regressed"],
   "redaction_status": "redacted_public_safe",
-  "formal_claim": "Selected mathematical properties behind the contamination-resistant promotion gate are machine-verified in Lean 4. The implementation is property-tested against the formal specification."
+  "hf_public_safe": true,
+  "formal_claim": "Selected mathematical properties behind the contamination-resistant promotion gate are machine-verified in Lean 4. A hand-maintained Python mirror has property tests derived from selected definitions; no mechanized code-to-proof parity is claimed.",
+  "formal_scope": "Selected mathematical properties behind the contamination-resistant promotion gate are machine-verified in Lean 4. A hand-maintained Python mirror has property tests derived from selected definitions; no mechanized code-to-proof parity is claimed.",
+  "metadata": {
+    "illustrative": true,
+    "comment": "Synthetic numbers, fake IDs, and redacted fields; not a real evaluation.",
+    "org": "REDACTED",
+    "baseline_clean_vgs": 0.55,
+    "adversarial_score": 0.58,
+    "clean_vgs_beta": 0.5
+  }
 }

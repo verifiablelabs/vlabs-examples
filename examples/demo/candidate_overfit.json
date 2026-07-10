@@ -2,7 +2,7 @@
   "model_id": "refund-agent-candidate-overfit",
   "vgs": 0.78,
   "contamination_risk": 0.34,
-  "clean_vgs": 0.55,
+  "clean_vgs": 0.3448,
   "public_score": 0.92,
   "hidden_score": 0.69,
   "ood_score": 0.62,
