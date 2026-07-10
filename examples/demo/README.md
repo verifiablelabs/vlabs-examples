@@ -31,12 +31,13 @@ but is weaker on **hidden / OOD** transfer (`hidden_score` 0.68,
 `ood_score` 0.66). Two candidates then ask to be promoted:
 
 - **`candidate.json`** improves clean verified-generalization score
-  (`clean_vgs` 0.50 → 0.63) with no regression in contamination risk, hack
+  (`clean_vgs` 0.58 → 0.6868) with no regression in contamination risk, hack
   risk, calibration, OOD, cost, or latency → **ACCEPT**.
 - **`candidate_overfit.json`** has the **highest public score** of all (0.92)
   — but it got there by memorising the visible set: contamination risk jumps
   (0.10 → 0.34) and OOD transfer drops (0.66 → 0.62). The gate **REJECT**s it
-  and names exactly why: `ood_regressed`, `dcr_increased`.
+  and names exactly why: `clean_vgs_not_improved`, `ood_regressed`, and
+  `dcr_increased`.
 
 That contrast is the whole point: **a higher public score is not a promotion.**
 The clean gate only accepts a change that *truly generalizes*.
@@ -48,7 +49,7 @@ The clean gate only accepts a change that *truly generalizes*.
 
 condition                               old        new     budget OK
 -------------------------------- ---------- ---------- ---------- --
-clean_vgs >= +tau                    0.5000     0.5500     0.0100  OK
+clean_vgs >= +tau                    0.5800     0.3448     0.0100  !!
 hack_risk <= +eps_h                  0.1000     0.1100     0.0200  OK
 calibration >= -eps_c                0.9000     0.9000     0.0200  OK
 ood_score >= -eps_o                  0.6600     0.6200     0.0200  !!
@@ -58,6 +59,7 @@ latency <= +eps_l                    1.0000     1.0000     0.5000  OK
 regression flag                       False      False      False  OK
 
 Reasons:
+  - clean_vgs_not_improved
   - ood_regressed
   - dcr_increased
 ```
@@ -84,8 +86,10 @@ a partial promotion when a change is a net improvement but carries a watch-item
 [`sample_assurance_card_redacted.json`](sample_assurance_card_redacted.json),
 which records a `LIMITED_ROLLOUT` decision with reason `ood_regressed`.
 
-`clean_score = raw * (1 - dcr)` — contamination directly discounts the score,
-which is why a memorised public win cannot buy a promotion.
+`clean_vgs = raw_vgs * (1 - dcr) - beta * dcr` — contamination directly
+discounts and penalizes the score, which is why a memorised public win cannot
+buy a promotion. The CLI recomputes this value instead of trusting the derived
+field supplied by a card.
 
 ## What this does NOT show
 
@@ -109,5 +113,5 @@ which is why a memorised public win cannot buy a promotion.
 ## Formal scope
 
 Selected mathematical properties behind the contamination-resistant promotion
-gate are machine-verified in Lean 4. The implementation is property-tested
-against the formal specification.
+gate are machine-verified in Lean 4. A hand-maintained Python mirror has property
+tests derived from selected definitions; no mechanized code-to-proof parity is claimed.
